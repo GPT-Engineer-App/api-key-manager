@@ -3,7 +3,7 @@ import { Box, Heading, HStack, Input, Button } from "@chakra-ui/react";
 
 const Banner = () => {
   return (
-    <Box bg="#005060" p={4}>
+    <Box bg="#005060" p={4} position="fixed" top={0} left={0} right={0} zIndex={1}>
       <HStack justify="space-between">
         <Heading size="md" color="white">
           tadata

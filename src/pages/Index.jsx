@@ -33,9 +33,9 @@ const Index = () => {
   ];
 
   return (
-    <Box bg="gray.100" minH="100vh" p={8}>
+    <Box bg="gray.100" minH="100vh">
       <Banner />
-      <VStack spacing={8} align="stretch">
+      <VStack spacing={8} align="stretch" mt={16}>
         <HStack spacing={8} align="center">
           <Image src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxlbXBsb3llZSUyMHBvcnRyYWl0fGVufDB8fHx8MTcxMTAxNDk5NXww&ixlib=rb-4.0.3&q=80&w=1080" alt="Profile" boxSize="150px" objectFit="cover" borderRadius="full" />
           <VStack align="start" spacing={2}>
