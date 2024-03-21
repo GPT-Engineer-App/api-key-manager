@@ -1,34 +1,25 @@
 import React from "react";
-import { Box, Flex, Button, Input, Text } from "@chakra-ui/react";
+import { Box, Flex, Button, Input } from "@chakra-ui/react";
 
 const Header = () => {
   return (
     <Box bg="#005060" w="100%" p={4} color="white">
       <Flex justify="space-between" align="center">
-        <Text fontSize="xl" fontWeight="bold">
-          Tadata
-        </Text>
+        <Box>Tadata</Box>
         <Box>
-          <Button bg="#007d8d" color="white" _hover={{ bg: "#005060" }} mr={2}>
+          <Button bg="#007d8d" color="white" mr={2}>
             APIs
           </Button>
-          <Button bg="#007d8d" color="white" _hover={{ bg: "#005060" }}>
+          <Button bg="#007d8d" color="white">
             Providers
           </Button>
         </Box>
-        <Input placeholder="Search" bg="#4eacbd" />
+        <Box>
+          <Input placeholder="Search..." bg="#4eacbd" border="none" />
+        </Box>
       </Flex>
     </Box>
   );
 };
 
-const IndexPage = () => {
-  return (
-    <Box>
-      <Header />
-      {}
-    </Box>
-  );
-};
-
-export default IndexPage;
+export default Header;
