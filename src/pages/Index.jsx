@@ -1,109 +1,25 @@
-import React, { useState } from "react";
-import { Box, VStack, HStack, Image, Text, Heading, Input, Button, Table, Thead, Tbody, Tr, Th, Td, Progress, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, ModalCloseButton } from "@chakra-ui/react";
+import React from "react";
+import { Box, Flex, Button, Input } from "@chakra-ui/react";
 
-const Index = () => {
-  const [name, setName] = useState("John Doe");
-  const [company, setCompany] = useState("Acme Inc.");
-  const [email, setEmail] = useState("john.doe@example.com");
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const apiKeys = [
-    {
-      api: "Weather API",
-      cost: 50,
-      validUntil: "2023-12-31",
-      callsUsed: 500,
-      totalCalls: 1000,
-    },
-    {
-      api: "Geocoding API",
-      cost: 25,
-      validUntil: "2023-09-30",
-      callsUsed: 200,
-      totalCalls: 500,
-    },
-    {
-      api: "News API",
-      cost: 75,
-      validUntil: "2024-03-31",
-      callsUsed: 800,
-      totalCalls: 2000,
-    },
-  ];
-
+const Header = () => {
   return (
-    <Box bg="gray.100" minH="100vh" p={8}>
-      <VStack spacing={8} align="stretch">
-        <HStack spacing={8} align="center">
-          <Image src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxlbXBsb3llZSUyMHBvcnRyYWl0fGVufDB8fHx8MTcxMTAxNDk5NXww&ixlib=rb-4.0.3&q=80&w=1080" alt="Profile" boxSize="150px" objectFit="cover" borderRadius="full" />
-          <VStack align="start" spacing={2}>
-            <Heading size="xl" color="green.600">
-              {name}
-            </Heading>
-            <Text fontSize="lg" color="gray.600">
-              {company}
-            </Text>
-            <Text fontSize="lg" color="gray.600">
-              {email}
-            </Text>
-            <HStack>
-              <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
-              <Input value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Company" />
-              <Input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-            </HStack>
-            <Button colorScheme="pink" onClick={onOpen}>
-              View/Reset Password
-            </Button>
-          </VStack>
-        </HStack>
-        <Box overflowX="auto">
-          <Table variant="simple" colorScheme="green" size="lg">
-            <Thead>
-              <Tr>
-                <Th>API</Th>
-                <Th>Cost</Th>
-                <Th>Valid Until</Th>
-                <Th>Calls Used</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {apiKeys.map((key, index) => (
-                <Tr key={index}>
-                  <Td>{key.api}</Td>
-                  <Td>${key.cost}</Td>
-                  <Td>{key.validUntil}</Td>
-                  <Td>
-                    <Progress value={(key.callsUsed / key.totalCalls) * 100} size="sm" colorScheme="pink" />
-                    {key.callsUsed} / {key.totalCalls}
-                  </Td>
-                </Tr>
-              ))}
-            </Tbody>
-          </Table>
+    <Box bg="#005060" w="100%" p={4} color="white">
+      <Flex justify="space-between" align="center">
+        <Box>Tadata</Box>
+        <Box>
+          <Button bg="#007d8d" color="white" mr={2}>
+            APIs
+          </Button>
+          <Button bg="#007d8d" color="white">
+            Providers
+          </Button>
         </Box>
-      </VStack>
-
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Password</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Text>Current Password: ********</Text>
-            <Input placeholder="New Password" type="password" mt={4} />
-          </ModalBody>
-          <ModalFooter>
-            <Button colorScheme="pink" mr={3} onClick={onClose}>
-              Reset Password
-            </Button>
-            <Button variant="ghost" onClick={onClose}>
-              Cancel
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+        <Box>
+          <Input placeholder="Search..." bg="#4eacbd" border="none" />
+        </Box>
+      </Flex>
     </Box>
   );
 };
 
-export default Index;
+export default Header;
